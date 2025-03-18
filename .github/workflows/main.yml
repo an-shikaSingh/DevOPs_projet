@@ -1,13 +1,19 @@
-name: CI/CD for Static Website
+name: Deploy to GitHub Pages
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Deploy Static Website
-        run: echo "Your HTML, CSS, and JS project is ready!"
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: . # This means your index.html must be in the root directory
