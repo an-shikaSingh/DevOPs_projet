@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: CI/CD for Static Website
 
 on: [push]
 
@@ -9,13 +9,5 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build the project
-        run: npm run build
+      - name: Deploy Static Website
+        run: echo "Your HTML, CSS, and JS project is ready!"
